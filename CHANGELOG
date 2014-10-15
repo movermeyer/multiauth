@@ -1,0 +1,24 @@
+05.01.2012
+----------
+* Still working on 1.4.0 
+* Fixed returnto parameter, so that it never points to the 
+  MultiAuthSpecialLogin or MultiAuthSpecialLogout page.
+  This way the user will never enter a login/logout loop by clicking
+  on the "Back to..." links.
+* Changed configuration options to support one authentication library per method
+  In theory you could use Shibboleth and SimpleSamlPHP in parallel now
+* Some cleaning in the configuration options
+* Also added per method auth configuration options depending on the configured
+  authentication library
+* 'local' authentication method is now hardcoded and removed from configuration options
+* Open issue with call to MessageCache->recache() on every page view!
+
+
+04.01.2012
+----------
+* Bump to version 1.4.0
+* compatibility with Mediawiki 1.18.0
+* worked around some localisation issues 
+* MultiAuth now ignores requests to load.php -> performance
+
+

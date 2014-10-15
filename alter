@@ -1,0 +1,2 @@
+
+CREATE TABLE mw_external_account_map (external_user_name varbinary(255), internal_user_name varbinary(255));
