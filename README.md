@@ -1,5 +1,4 @@
-##Disclaimer
-08.02.2015
+##Disclaimer (08.02.2015)
 
 This repository was set up to try to save the source code of the [Mediawiki MultiAuthPlugin extension](https://www.mediawiki.org/wiki/Extension:MultiAuthPlugin).
 
