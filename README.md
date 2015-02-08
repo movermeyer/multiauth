@@ -9,6 +9,9 @@ I have since tried to revert the code to the way it was before my changes. Howev
 If you're curious about what sort of changes I did, you can check out the first few commits of this repo to see what I reverted.
 If you happen to have a unmodified copy of the repo from before it disappered, please feel free to submit a pull request.
 
+This extension should still be considered unmaintained. I have no intention to become the maintainer of this extension, and I'm not even sure that the extension should be used or considered secure in modern versions of Mediawiki. I just thought it was a shame that the original SVN repo went offline.
+
+
 MediaWiki MultiAuthPlugin v1.4.0 (05.01.2012)
 --------------------------------
 
