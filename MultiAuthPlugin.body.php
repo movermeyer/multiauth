@@ -517,10 +517,50 @@ class MultiAuthPlugin extends AuthPlugin {
 
 			wfDebugLog('MultiAuthPlugin', __METHOD__ . ': ' . "Attempting user login for '{$username}'.");
 
+			//Check if the user was created by an external authenticator previously
+			//If so, we can let them log in to the local account
+			//Else we can't, since they may be logging into the account of another! 
+			//(who happens to have the same user_name)
+			$externally_created = false;			
+			$dbw = wfGetDB( DB_MASTER ); //Need the latest info
+			$dbw->begin();
+			$cond = "external_user_name = '".$username."'";
+			$result = $dbw->select('external_account_map', 'internal_user_name', $cond);
+			$result = $result->fetchRow();
+			$dbw->commit();
+			if ($result){$username = $result['internal_user_name'];$externally_created = true;}	
+	
 			// Check if we need to auto-create this user
 			$autoCreated = false;
-			if ($this->config['internal']['enableAutoCreateUsers'] && !User::idFromName($username)) {
-				wfDebugLog('MultiAuthPlugin', __METHOD__ . ': ' . "Could not find user '{$username}' in the local database. Trying to automatically create it.");
+			if ($this->config['internal']['enableAutoCreateUsers'] && (!User::idFromName($username) || (User::idFromName($username) && !$externally_created)) ) {
+				wfDebugLog('MultiAuthPlugin', __METHOD__ . ': ' . "Could not find user '{$username}' in the local database (Or user exists, but was not created using CAS). Trying to automatically create it.");
+
+				//Save the external username
+				$attrs['external_username'] = $username;
+				//Choose the internal username to use when creating the account 
+				//if the account existed but wasn't created with CAS
+				if (User::idFromName($username))
+				{					
+					$counter = 1;
+					if (substr($username, -5) === "(CAS)")
+					{
+						
+					}
+					else
+					{
+						$username = $username."(CAS)";
+					}
+
+					$modified_username = $username;
+					while (User::idFromName($modified_username)) {
+						
+						$modified_username = $username."(".strval($counter).")";
+						$counter = $counter + 1;
+					}
+					$username = $modified_username;
+					$attrs['username'] = $username;
+				}
+
 				$this->createUser($user, $attrs);
 				$autoCreated = true;
 			}
@@ -635,6 +675,13 @@ class MultiAuthPlugin extends AuthPlugin {
 
 			// set all attributes other than the Uid/Username
 			$this->modifyUserIfNeeded($user, $attrs);
+
+			//Add 'external_account_map' entry for the user
+			$dbw = wfGetDB( DB_MASTER ); //Need the latest info
+			$dbw->begin();
+			$values = $array = array("external_user_name" => $attrs['external_username'], "internal_user_name" => $attrs['username'],);
+			$dbw->insert( 'external_account_map', $values);
+			$dbw->commit();
 
 			if ($this->config['comm']['onUserCreation']['notifyMail']) {
 
