@@ -150,7 +150,6 @@ $config['internal'] = array(
 		'local',
 		//'shibboleth-default',
 		//'simplesamlphp-default',
-		'cas.uwaterloo.ca'
 			
 		/*
 		 * SAMPLES
