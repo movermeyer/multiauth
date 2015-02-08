@@ -10,11 +10,7 @@ I have since tried to revert the code to the way it was before my changes. Howev
 If you're curious about what sort of changes I did, you can check out the first few commits of this repo to see what I reverted.
 If you happen to have a unmodified copy of the repo from before it disappered, please feel free to submit a pull request.
 
-################################################
-
-05.01.2012
-
-MediaWiki MultiAuthPlugin v1.4.0
+MediaWiki MultiAuthPlugin v1.4.0 (05.01.2012)
 --------------------------------
 
 0. Quick usage
