@@ -154,11 +154,12 @@ function deferredMultiAuthSetup() {
 	global $wgExtensionMessagesFiles;
 	$wgExtensionMessagesFiles['MultiAuthPlugin'] =  dirname(__FILE__) . '/MultiAuthPlugin.i18n.php';
 	
-	if ( function_exists( 'wfLoadExtensionMessages' ) )
+	if ( function_exists( 'wfLoadExtensionMessages' ) ) 
 		wfLoadExtensionMessages('MultiAuthPlugin'); // pre 1.18.0
 	
-	if (MwFunctions::testVersionGEq(1,19))
-		MwFunctions::updateMessageCache(); // Hack for post 1.18.0, broken, doesn't work if you put a lower version number, set to you current version
+	
+	if (MwFunctions::testVersionGEq(1,18)) 
+		MwFunctions::updateMessageCache(); // Hack for post 1.18.0
 
 
 	/********************************************

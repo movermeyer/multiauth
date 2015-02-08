@@ -30,8 +30,6 @@ if (!defined('MEDIAWIKI')) die('This file is part of MediaWiki. It is not a vali
 
 require_once("includes/WebFunctions.php");
 require_once("includes/MwFunctions.php");
-//require_once("../../includes/GlobalFunctions.php");
-//require_once("../../includes/db/Database.php");
 	
 	
 if (!MwFunctions::isAsyncLoadRequest()) {
