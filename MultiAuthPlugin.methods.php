@@ -112,33 +112,6 @@ $config['methods'] = array(
 			),
 	),
 
-	'cas.uwaterloo.ca' => array(
-		'auth' => array(
-			'lib' => 'simplesamlphp',
-			'spentityid' => 'cas.uwaterloo.ca'
-			),
-
-		'login' => array(
-			'text' => 'Login with UWaterloo CAS'
-			),
-
-		'logout' => array(
-			'text' => 'Logout from UWaterloo CAS'
-			),
-
-		'attributes' => array(
-			'username'	=> ucfirst( $authData['uid'] ),
-			'fullname'	=> $authData['cn'],
-			'email'		=> $authData['mail']
-			),
-
-		'requirements' => array(
-			'email'	=> '*'
-			)
-		),
-		
-	
-	
 	/**************************************************************************/
 	/* SAMPLES TO BE COPIED AND MODIFIED                                      */
 	/**************************************************************************/
