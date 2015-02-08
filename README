@@ -1,3 +1,17 @@
+##Disclaimer
+08.02.2015
+
+This repository was set up to try to save the source code of the [Mediawiki MultiAuthPlugin extension](https://www.mediawiki.org/wiki/Extension:MultiAuthPlugin).
+
+Since the original source code repository was already offline before I created this repo, I pulled the code from a copy I happened to have in production.
+Unfortunately, I had modified the code somewhat to serve my needs in production (Nothing serious, just some customization.) 
+I have since tried to revert the code to the way it was before my changes. However, I can't guarantee that I have found and reverted all of my changes. 
+
+If you're curious about what sort of changes I did, you can check out the first few commits of this repo to see what I reverted.
+If you happen to have a unmodified copy of the repo from before it disappered, please feel free to submit a pull request.
+
+################################################
+
 05.01.2012
 
 MediaWiki MultiAuthPlugin v1.4.0
