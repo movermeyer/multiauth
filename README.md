@@ -22,10 +22,9 @@ The 'MultiAuthPlugin/' folder should be placed under the 'wiki/extensions/' dire
 The plugin can be activated by putting the following lines at the _end_ 
 of the 'wiki/LocalSettings.php'
 
-if (!$wgCommandLineMode) {
-    # extension includes
-    require_once("extensions/MultiAuthPlugin/MultiAuthPlugin.php");
-}
+	if (!$wgCommandLineMode) {
+	    require_once("extensions/MultiAuthPlugin/MultiAuthPlugin.php");
+	}
 
 To activate the debug log capability you have to make the 'log/' directory 
 writeable by the web server and create a 'log/debug.log' file - also writeable 
