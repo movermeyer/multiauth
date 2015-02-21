@@ -96,29 +96,19 @@ class MwFunctions {
 	static function testVersionGEq($major, $minor = null, $patch = null) {
 		$version = self::getVersionParts();
 	
-		if ($major < $version['major']){
-			return true;
-        } elseif ($major > $version['major']){
-            return false;
-        }
-        elseif (!is_null($minor)) { //Major version is equal, check minor version
-            if ($minor < $version['minor']){
-                return true;
-            } elseif ($minor > $version['minor']){
-                return false;
-            }
-            elseif (!is_null($patch)) { //Minor version is equal, check patch version
-                if ($patch < $version['patch']){
-                    return true;
-                } elseif ($patch > $version['patch']){
-                    return false;
-                }
-        
-            }
-        }
+		if ($major < $version['major'])
+			return false;
+	
+		if (!is_null($minor) && $minor < $version['minor'])
+			return false;
+				
+		if (!is_null($patch) && $patch < $version['patch'])
+			return false;
+				
 		return true;
 	}
-
+	
+	
 }
 
 ?>
