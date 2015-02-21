@@ -57,7 +57,7 @@ $config['paths'] = array(
 	 * 	'simplesamlphp' => dirname(__FILE__) . '/libs/simplesamlphp',
 	 */
 	'libs' => array(
-		'simplesamlphp' => '/users/uwwiki/lib/simplesamlphp',
+		'simplesamlphp' => dirname(__FILE__) . '/libs/simplesamlphp',
 	),
 
 );
@@ -190,8 +190,8 @@ $config['comm'] = array(
 	 	 * 	'notifyMailTo' => '',
 	 	 */
 		'notifyMail' => true,
-		'notifyMailTo' => 'registrations@warriorwiki.ca',
-		'notifyMailFrom' => 'noreply@warriorwiki.ca',
+		'notifyMailTo' => '',
+		'notifyMailFrom' => '',
 
 
 		/*
