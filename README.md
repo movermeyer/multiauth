@@ -7,6 +7,10 @@ Unfortunately, I had modified the code somewhat to serve my needs in production 
 
 I tried to revert the code to the way it was before my changes. However, I can't guarantee that I have found and reverted all of my changes. If you're curious about what sort of changes I did, you can check out the first few commits of this repo to see what I reverted.
 
+This version has been imortalized in the [v1.4 branch](https://github.com/movermeyer/multiauth/tree/v1.4).
+
+I have since made some changes to the code to allow it to work on modern Mediawiki versions. With these changes, I have targetted Mediawiki 1.24. In doing so, I have broken compatibility with some older versions of Mediawiki.
+
 This extension should still be considered unmaintained. I have no intention to become the maintainer of this extension, and I'm not even sure that the extension should be used or considered secure in modern versions of Mediawiki. I just thought it was a shame that the original SVN repo went offline.
 
 
