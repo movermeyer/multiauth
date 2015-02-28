@@ -118,7 +118,7 @@ class MultiAuthPlugin extends AuthPlugin {
 	 */
 	private function loadConfig($configFile = null) {
 		if (is_null($configFile)) {
-			$configFile = dirname(__FILE__) . '/MultiAuthPlugin.config.php';
+			$configFile = __DIR__ . '/MultiAuthPlugin.config.php';
 		}
 		if (!file_exists($configFile)) {
 			wfDebugLog('MultiAuthPlugin', __METHOD__ . ': ' . "The specified configuration file '$configFile' does not exist.");
@@ -183,12 +183,12 @@ class MultiAuthPlugin extends AuthPlugin {
 			'local' => array(
 					'login' => array(
 							'text' => 'Login (local)',
-							'href' => SpecialPage::getTitleFor('Userlogin')->escapeFullURL() . '?returnto={RETURN_URL}',
+							'href' => htmlspecialchars(SpecialPage::getTitleFor('Userlogin')->getFullURL()) . '?returnto={RETURN_URL}',
 					),
 			
 					'logout' => array(
 							'text' => 'Logout (local)',
-							'href' => SpecialPage::getTitleFor('Userlogout')->escapeFullURL() . '?returnto={RETURN_URL}',
+							'href' => htmlspecialchars(SpecialPage::getTitleFor('Userlogin')->getFullURL()) . '?returnto={RETURN_URL}',
 					),
 			
 					'attributes' => array(),
@@ -961,17 +961,17 @@ class MultiAuthPlugin extends AuthPlugin {
 
 		// Build link to the login/logout special pages of the MultiAuthPlugin
 		if ($returnto == '') {
-			$loginLink = SpecialPage::getTitleFor('MultiAuthSpecialLogin')->escapeFullURL();
+			$loginLink = htmlspecialchars(SpecialPage::getTitleFor('MultiAuthSpecialLogin')->getFullURL());
 		}
 		else {
-			$loginLink = SpecialPage::getTitleFor('MultiAuthSpecialLogin')->escapeFullURL() . "?returnto=" . $returnto;
+			$loginLink = htmlspecialchars(SpecialPage::getTitleFor('MultiAuthSpecialLogin')->getFullURL()) . "?returnto=" . $returnto;
 		}
 		
-		$logoutLink = SpecialPage::getTitleFor('MultiAuthSpecialLogout')->escapeFullURL();
+		$logoutLink = htmlspecialchars(SpecialPage::getTitleFor('MultiAuthSpecialLogout')->getFullURL());
 
 		if (!$this->isLoggedIn()) {
 			$personal_urls['MA_login'] = array(
-				'text' => wfMsg('multiauth-special_login_link'),
+				'text' => wfMessage('multiauth-special_login_link')->text(),
 				'href' => $loginLink,
 			);
 		}

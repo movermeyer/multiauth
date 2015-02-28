@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": []
+    },
+    
+    "multiauthspeciallogout": "MultiAuth Abmeldeseite",  
+	
+	"multiauthspeciallogout-credits_name": "MultiAuth Abmeldeseite",
+	"multiauthspeciallogout-credits_author": "Regionales Rechenzentrum Erlangen (RRZE), Florian Löffler",
+	"multiauthspeciallogout-credits_description": "Logout Spezialseite als Teil der Multi Authentifizierungserweiterung",
+
+	"multiauthspeciallogout-msg_logoutSuccess": "Erfolgreich ausgeloggt.",
+	"multiauthspeciallogout-msg_logoutFailure": "Etwas ist schief gelaufen.\nNicht ausgeloggt!"
+}

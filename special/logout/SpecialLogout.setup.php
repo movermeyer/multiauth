@@ -44,6 +44,9 @@ global $wgSpecialPageGroups;
 $wgSpecialPageGroups['MultiAuthSpecialLogout'] = 'login';
 
 
+// localization
+global $wgMessagesDirs;
+$wgMessagesDirs['MultiAuthSpecialLogout'] = __DIR__ . '/i18n';
 
 /* ********************************************
  *             DEFERRED SETUP               *
@@ -57,29 +60,16 @@ $wgSpecialPageGroups['MultiAuthSpecialLogout'] = 'login';
 function multiAuthLogoutSetup() {
 	global $wgExtensionMessagesFiles;
 	global $wgExtensionCredits;
-	global $wgExtensionAliasesFiles;
 	global $wgMultiAuthPlugin;
 
-	// localization
-	$wgExtensionMessagesFiles['MultiAuthSpecialLogout'] =  dirname(__FILE__). '/SpecialLogout.i18n.php';
-	
-	if ( function_exists( 'wfLoadExtensionMessages' ) )
-		wfLoadExtensionMessages('MultiAuthSpecialLogout'); // pre 1.18.0
-
-// 	if (MwFunctions::testVersionGEq(1,18))
-// 		MwFunctions::updateMessageCache(); // Hack for post 1.18.0
-	
-	
 	// aliases
-	if (!MwFunctions::testVersionGEq(1,18))
-		$wgExtensionAliasesFiles['MultiAuthSpecialLogout'] = dirname(__FILE__) . '/SpecialLogout.alias.php'; // pre 1.18.0
-
+	$wgExtensionMessagesFiles['MultiAuthSpecialLogoutAlias'] = __DIR__ . '/SpecialLogout.alias.php';
 	
 	// credits
 	$wgExtensionCredits['specialpage']['MultiAuthSpecialLogout'] = array(
-// 		'name' 			=> wfMsg('multiauthspeciallogout-credits_name'),
-// 		'author' 		=> wfMsg('multiauthspeciallogout-credits_author'), 
-// 		'description' 	=> wfMsg('multiauthspeciallogout-credits_description'),
+// 		'name' 			=> wfMessage('multiauthspeciallogout-credits_name')->text(),
+// 		'author' 		=> wfMessage('multiauthspeciallogout-credits_author')->text(), 
+// 		'description' 	=> wfMessage('multiauthspeciallogout-credits_description')->text(),
 		'path' 			=> __FILE__,
 		'version'		=> $wgMultiAuthPlugin->getVersion(),
 		'url' 			=> $wgMultiAuthPlugin->getURL(), 

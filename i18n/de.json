@@ -1,0 +1,11 @@
+{
+    "@metadata": {
+        "authors": []
+    },
+
+    "multiauth-credits_name": "MultiAuth Erweiterung",
+	"multiauth-credits_author": "Regionales Rechenzentrum Erlangen (RRZE), Florian Löffler",
+	"multiauth-credits_description": "Flexibel konfigurierbare Authentifizierungserweiterung",
+	"multiauth-special_login_link": "Anmelden",
+	"multiauth-special_logout_link": "Abmelden"
+}

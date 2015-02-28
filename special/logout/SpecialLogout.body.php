@@ -77,7 +77,7 @@ class MultiAuthSpecialLogout extends SpecialPage {
 				exit; // Stop execution here
 			}
 			else {
-				$html .= "<p>" . wfMsg('multiauthspeciallogout-msg_logoutSuccess') . "</p>\n";
+				$html .= "<p>" . wfMessage('multiauthspeciallogout-msg_logoutSuccess')->text() . "</p>\n";
 			}
 
 		}
@@ -119,12 +119,12 @@ class MultiAuthSpecialLogout extends SpecialPage {
 			// Run the logout complete hook for local logout
 			wfRunHooks('UserLogoutComplete', array(&$wgUser, &$injectedHtml, $oldName));
 
-			$html .= "<p>" . wfMsg('multiauthspeciallogout-msg_logoutSuccess') . "</p>\n";
+			$html .= "<p>" . wfMessage('multiauthspeciallogout-msg_logoutSuccess')->text() . "</p>\n";
 			$html .= $injectedHtml;
 			return true;
 		}
 		else {
-			$html .= "<p>" . wfMsg('multiauthspeciallogout-msg_logoutFailure') . "</p>\n";
+			$html .= "<p>" . wfMessage('multiauthspeciallogout-msg_logoutFailure')->text() . "</p>\n";
 			return false;
 		}
 	}
@@ -184,7 +184,7 @@ class MultiAuthSpecialLogout extends SpecialPage {
 			}
 		}
 		else {
-			$html .= "<p>" . wfMsg('multiauthspeciallogout-msg_logoutFailure') . "</p>\n";
+			$html .= "<p>" . wfMessage('multiauthspeciallogout-msg_logoutFailure')->text() . "</p>\n";
 			return false;
 		}
 	}
@@ -196,7 +196,7 @@ class MultiAuthSpecialLogout extends SpecialPage {
 				$currentMethod['auth']['mode'] == 'lazy')
 		{
 			// we can come back to MW
-			$local_href = SpecialPage::getTitleFor('MultiAuthSpecialLogout')->escapeFullURL();
+			$local_href = htmlspecialchars(SpecialPage::getTitleFor('MultiAuthSpecialLogout')->getFullURL());
 		}
 		else {
 			// we won't be able to come back to MW because of access restrictions

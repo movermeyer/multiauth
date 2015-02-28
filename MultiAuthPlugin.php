@@ -30,7 +30,8 @@ if (!defined('MEDIAWIKI')) die('This file is part of MediaWiki. It is not a vali
 
 require_once("includes/WebFunctions.php");
 require_once("includes/MwFunctions.php");
-
+	
+	
 if (!MwFunctions::isAsyncLoadRequest()) {
 	// DON'T DO ANYTHING IF THIS IS A REQUEST TO LOAD.PHP
 	
@@ -55,8 +56,8 @@ if (!MwFunctions::isAsyncLoadRequest()) {
 	
 	
 	// MAKE SURE THIS IS COMMENTED OUT IN PRODUCTION !!!
-    
-    $wgExtensionMessagesFiles['MultiAuthSpecialLogin'] = __DIR__ . '/MultiAuthSpecialLogin.alias.php';
-    $wgExtensionMessagesFiles['MultiAuthSpecialLogout'] = __DIR__ . '/MultiAuthSpecialLogout.alias.php';	
+	
+	$wgExtensionMessagesFiles['MultiAuthSpecialLoginAlias'] = __DIR__ . '/special/login/SpecialLogin.alias.php';
+	$wgExtensionMessagesFiles['MultiAuthSpecialLogoutAlias'] = __DIR__ . '/special/logout/SpecialLogout.alias.php';
 }
 ?>

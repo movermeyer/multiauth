@@ -36,8 +36,8 @@ $config['general'] = array(
 	 * Current version number string and home url of the plugin.
 	 * PLEASE DON'T CHANGE THIS, THAT'S THE AUTHOR'S JOB ;)
 	 */
-	'version' => '1.4.0',
-	'url' => 'http://multiauth.berlios.de/',
+	'version' => '2.0.0-alpha',
+	'url' => 'https://github.com/movermeyer/multiauth/',
 
 );
 
@@ -54,10 +54,10 @@ $config['paths'] = array(
 	 * does not imply that they get loaded. This depends on the configuration
 	 * below.
 	 * DEFAULTS:
-	 * 	'simplesamlphp' => dirname(__FILE__) . '/libs/simplesamlphp',
+	 * 	'simplesamlphp' => __DIR__ . '/libs/simplesamlphp',
 	 */
 	'libs' => array(
-		'simplesamlphp' => dirname(__FILE__) . '/libs/simplesamlphp',
+		'simplesamlphp' => __DIR__ . '/libs/simplesamlphp',
 	),
 
 );
@@ -132,7 +132,7 @@ $config['internal'] = array(
 	 * The file will be included and automatically processed during 
 	 * MA's initialisation process.
 	 */
-	'methodSetupFile' => dirname(__FILE__) . '/MultiAuthPlugin.methods.php',
+	'methodSetupFile' => __DIR__ . '/MultiAuthPlugin.methods.php',
 
 
 	/*

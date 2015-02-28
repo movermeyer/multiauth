@@ -42,7 +42,9 @@ $wgSpecialPages['MultiAuthSpecialLogin'] = 'MultiAuthSpecialLogin';
 global $wgSpecialPageGroups;
 $wgSpecialPageGroups['MultiAuthSpecialLogin'] = 'login';
 
-
+// localization
+global $wgMessagesDirs;
+$wgMessagesDirs['MultiAuthSpecialLogin'] = __DIR__ . '/i18n';
 
 /* ********************************************
  *             DEFERRED SETUP               *
@@ -51,26 +53,15 @@ $wgSpecialPageGroups['MultiAuthSpecialLogin'] = 'login';
 function multiAuthLoginSetup() {
 	global $wgExtensionMessagesFiles;
 	global $wgExtensionCredits;
-	global $wgExtensionAliasesFiles;
 	global $wgMultiAuthPlugin;
 
-	// localization
-	$wgExtensionMessagesFiles['MultiAuthSpecialLogin'] = dirname(__FILE__) . '/SpecialLogin.i18n.php';
-	if ( function_exists( 'wfLoadExtensionMessages' ) )
-		wfLoadExtensionMessages('MultiAuthSpecialLogin'); // pre 1.18.0
-
-// 	if (MwFunctions::testVersionGEq(1,18))
-// 		MwFunctions::updateMessageCache(); // Hack for post 1.18.0
-	
-	
 	// aliases
-	if (!MwFunctions::testVersionGEq(1,18))
-		$wgExtensionAliasesFiles['MultiAuthSpecialLogin'] = dirname(__FILE__) . '/SpecialLogin.alias.php';
+	$wgExtensionMessagesFiles['MultiAuthSpecialLogoutAlias'] = __DIR__ . '/SpecialLogout.alias.php';
 
 	$wgExtensionCredits['specialpage']['MultiAuthSpecialLogin'] = array(
-// 			'name' 			=> wfMsg('multiauthspeciallogin-credits_name'),
-// 			'author' 		=> wfMsg('multiauthspeciallogin-credits_author'),
-// 			'description' 	=> wfMsg('multiauthspeciallogin-credits_description'),
+// 			'name' 			=> wfMessage('multiauthspeciallogin-credits_name')->text(),
+// 			'author' 		=> wfMessage('multiauthspeciallogin-credits_author')->text(),
+// 			'description' 	=> wfMessage('multiauthspeciallogin-credits_description')->text(),
 			'path' 			=> __FILE__,
 			'version'		=> $wgMultiAuthPlugin->getVersion(),
 			'url' 			=> $wgMultiAuthPlugin->getURL(),

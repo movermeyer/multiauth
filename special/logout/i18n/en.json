@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": []
+    },
+    
+    "multiauthspeciallogout": "MultiAuth logout page",  
+	
+	"multiauthspeciallogout-credits_name": "MultiAuth logout page",
+	"multiauthspeciallogout-credits_author": "Regional Computing Centre Erlangen (RRZE), Florian Löffler",
+	"multiauthspeciallogout-credits_description": "Logout special page as part of the Multi Authentication Plugin",
+
+	"multiauthspeciallogout-msg_logoutSuccess": "Successfully logged out.",
+	"multiauthspeciallogout-msg_logoutFailure": "Something went wrong.\nNot logged out!"
+}

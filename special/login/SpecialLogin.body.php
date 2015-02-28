@@ -80,7 +80,7 @@ class MultiAuthSpecialLogin extends SpecialPage {
 		if ($this->multiAuthPlugin->isLoggedIn()) {
 
 			// login success
-			$html .= "<p>" . wfMsg('multiauthspeciallogin-msg_loginSuccess') . "</p>\n";
+			$html .= "<p>" . wfMessage('multiauthspeciallogin-msg_loginSuccess')->text() . "</p>\n";
 
 		}
 		else if (isset($_GET['method']) && $this->multiAuthPlugin->isValidMethod($_GET['method'])) {
@@ -92,7 +92,7 @@ class MultiAuthSpecialLogin extends SpecialPage {
 		else if (!is_null($this->multiAuthPlugin->getCurrentMethodName()) && $this->multiAuthPlugin->getCurrentMethodName() != 'local') {
 				
 			// external authentication success but not authorized
-			$html .= "<p>" . wfMsg('multiauthspeciallogin-msg_notAuthorized') . "</p>\n";
+			$html .= "<p>" . wfMessage('multiauthspeciallogin-msg_notAuthorized')->text() . "</p>\n";
 			unset($_SESSION['MA_methodName']);
 				
 		}
@@ -190,10 +190,10 @@ class MultiAuthSpecialLogin extends SpecialPage {
 			$link_text = $link['text'];
 			
 			if (isset($_REQUEST['returnto'])) {
-				$link_href = SpecialPage::getTitleFor('MultiAuthSpecialLogin')->escapeFullURL() . '?returnto=' . $_REQUEST['returnto']. '&method=' . $methodName;
+				$link_href = htmlspecialchars(SpecialPage::getTitleFor('MultiAuthSpecialLogin')->getFullURL()) . '?returnto=' . $_REQUEST['returnto']. '&method=' . $methodName;
 			}
 			else {
-				$link_href = SpecialPage::getTitleFor('MultiAuthSpecialLogin')->escapeFullURL() . '?method=' . $methodName;
+				$link_href = htmlspecialchars(SpecialPage::getTitleFor('MultiAuthSpecialLogin')->getFullURL()) . '?method=' . $methodName;
 			}
 				
 			// configure the link
@@ -211,7 +211,7 @@ class MultiAuthSpecialLogin extends SpecialPage {
 		}
 		else {
 			$returnto = (isset($_REQUEST['returnto']))?'?returnto='.$_REQUEST['returnto']:'';
-			$return_url = SpecialPage::getTitleFor('MultiAuthSpecialLogin')->escapeFullURL() . $returnto;
+			$return_url = htmlspecialchars(SpecialPage::getTitleFor('MultiAuthSpecialLogin')->getFullURL()) . $returnto;
 		}
 		
 		wfDebugLog('MultiAuthPlugin', __METHOD__ . ': '  . ': ' . "returnTo = " . $return_url);
