@@ -36,8 +36,8 @@ $config['general'] = array(
 	 * Current version number string and home url of the plugin.
 	 * PLEASE DON'T CHANGE THIS, THAT'S THE AUTHOR'S JOB ;)
 	 */
-	'version' => '1.4.0',
-	'url' => 'http://multiauth.berlios.de/',
+	'version' => '2.0.0-alpha',
+	'url' => 'https://github.com/movermeyer/multiauth/',
 
 );
 
