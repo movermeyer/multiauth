@@ -44,6 +44,9 @@ global $wgSpecialPageGroups;
 $wgSpecialPageGroups['MultiAuthSpecialLogout'] = 'login';
 
 
+// localization
+global $wgMessagesDirs;
+$wgMessagesDirs['MultiAuthSpecialLogout'] = __DIR__ . '/i18n';
 
 /* ********************************************
  *             DEFERRED SETUP               *
@@ -60,11 +63,6 @@ function multiAuthLogoutSetup() {
 	global $wgExtensionAliasesFiles;
 	global $wgMultiAuthPlugin;
 
-	// localization
-	$wgExtensionMessagesFiles['MultiAuthSpecialLogout'] =  dirname(__FILE__). '/SpecialLogout.i18n.php';
-	
-	if ( function_exists( 'wfLoadExtensionMessages' ) )
-		wfLoadExtensionMessages('MultiAuthSpecialLogout'); // pre 1.18.0
 
 // 	if (MwFunctions::testVersionGEq(1,18))
 // 		MwFunctions::updateMessageCache(); // Hack for post 1.18.0

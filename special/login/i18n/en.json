@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": []
+    },
+    
+    "multiauthspeciallogin": "MultiAuth login page",  
+	
+	"multiauthspeciallogin-credits_name": "MultiAuth login page",
+	"multiauthspeciallogin-credits_author": "Regional Computing Centre Erlangen (RRZE), Florian Löffler",
+	"multiauthspeciallogin-credits_description": "Login special page as part of the Multi Authentication Plugin",
+
+	"multiauthspeciallogin-msg_loginSuccess": "Successfully logged in!",
+	"multiauthspeciallogin-msg_notAuthorized": "Successful external authentication.\nUnfortunately you do not have the necessary rights to access this wiki."
+}

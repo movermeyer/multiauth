@@ -42,7 +42,9 @@ $wgSpecialPages['MultiAuthSpecialLogin'] = 'MultiAuthSpecialLogin';
 global $wgSpecialPageGroups;
 $wgSpecialPageGroups['MultiAuthSpecialLogin'] = 'login';
 
-
+// localization
+global $wgMessagesDirs;
+$wgMessagesDirs['MultiAuthSpecialLogin'] = dirname(__FILE__) . '/i18n';
 
 /* ********************************************
  *             DEFERRED SETUP               *
@@ -54,10 +56,6 @@ function multiAuthLoginSetup() {
 	global $wgExtensionAliasesFiles;
 	global $wgMultiAuthPlugin;
 
-	// localization
-	$wgExtensionMessagesFiles['MultiAuthSpecialLogin'] = dirname(__FILE__) . '/SpecialLogin.i18n.php';
-	if ( function_exists( 'wfLoadExtensionMessages' ) )
-		wfLoadExtensionMessages('MultiAuthSpecialLogin'); // pre 1.18.0
 
 // 	if (MwFunctions::testVersionGEq(1,18))
 // 		MwFunctions::updateMessageCache(); // Hack for post 1.18.0

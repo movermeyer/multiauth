@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": []
+    },
+    
+    "multiauthspeciallogin": "MultiAuth Anmeldeseite",  
+	
+	"multiauthspeciallogin-credits_name": "MultiAuth Anmeldeseite",
+	"multiauthspeciallogin-credits_author": "Regionales Rechenzentrum Erlangen (RRZE), Florian Löffler",
+	"multiauthspeciallogin-credits_description": "Login Spezialseite als Teil der Multi Authentifizierungserweiterung",
+
+	"multiauthspeciallogin-msg_loginSuccess": "Erfolgreich eingeloggt!",
+	"multiauthspeciallogin-msg_notAuthorized": "Erfolgreiche externe Authentifizierung.<br/>Sie besitzen jedoch leider keine Zugriffsberechtigung für dieses Wiki!"
+}
