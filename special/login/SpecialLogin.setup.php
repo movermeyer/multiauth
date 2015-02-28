@@ -53,17 +53,10 @@ $wgMessagesDirs['MultiAuthSpecialLogin'] = __DIR__ . '/i18n';
 function multiAuthLoginSetup() {
 	global $wgExtensionMessagesFiles;
 	global $wgExtensionCredits;
-	global $wgExtensionAliasesFiles;
 	global $wgMultiAuthPlugin;
 
-
-// 	if (MwFunctions::testVersionGEq(1,18))
-// 		MwFunctions::updateMessageCache(); // Hack for post 1.18.0
-	
-	
 	// aliases
-	if (!MwFunctions::testVersionGEq(1,18))
-		$wgExtensionAliasesFiles['MultiAuthSpecialLogin'] = dirname(__FILE__) . '/SpecialLogin.alias.php';
+	$wgExtensionMessagesFiles['MultiAuthSpecialLogoutAlias'] = __DIR__ . '/SpecialLogout.alias.php';
 
 	$wgExtensionCredits['specialpage']['MultiAuthSpecialLogin'] = array(
 // 			'name' 			=> wfMessage('multiauthspeciallogin-credits_name')->text(),

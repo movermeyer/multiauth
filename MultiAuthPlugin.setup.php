@@ -154,13 +154,7 @@ function deferredMultiAuthSetup() {
 	global $wgMessagesDirs;
 	$wgMessagesDirs['MultiAuthPlugin'] = __DIR__ . '/i18n';
 	
-	if ( function_exists( 'wfLoadExtensionMessages' ) ) 
-		wfLoadExtensionMessages('MultiAuthPlugin'); // pre 1.18.0
-	
-	
-	if (MwFunctions::testVersionGEq(1,18)) 
-		MwFunctions::updateMessageCache(); // Hack for post 1.18.0
-
+	MwFunctions::updateMessageCache(); // Hack for post 1.18.0
 
 	/********************************************
 	 *                 CREDITS                  *

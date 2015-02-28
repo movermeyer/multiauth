@@ -50,65 +50,6 @@ class MwFunctions {
 		
 		return true;
 	}
-	
-	
-	private static function getVersionParts() {
-		if (is_null(self::$chachedMwVersionParts)) {
-			global $wgVersion;
-			// 		wfDebugLog('MultiAuthPlugin', __METHOD__ . ': ' . "Detected MW " . $wgVersion);
-
-			$parts = explode('.', $wgVersion);
-			$major = intval($parts[0]);
-			$minor = intval($parts[1]);
-			$patch = intval($parts[2]);
-
-			wfDebugLog('MultiAuthPlugin', __METHOD__ . ': ' . "Detected MW version: major {$major}, minor {$minor}, patch {$patch}");
-
-
-
-			self::$chachedMwVersionParts = array(
-					'major' => $major,
-					'minor' => $minor,
-					'patch' => $patch
-			);
-		}
-		
-		return self::$chachedMwVersionParts;
-	}
-
-	static function testVersionEq($major, $minor = null, $patch = null) {
-		$version = self::getVersionParts();
-	
-	
-		if ($major != $version['major'])
-			return false;
-	
-		if (!is_null($minor) && $minor != $version['minor'])
-			return false;
-	
-		if (!is_null($patch) && $patch != $version['patch'])
-			return false;
-	
-		return true;
-	}
-
-	
-	static function testVersionGEq($major, $minor = null, $patch = null) {
-		$version = self::getVersionParts();
-	
-		if ($major < $version['major'])
-			return false;
-	
-		if (!is_null($minor) && $minor < $version['minor'])
-			return false;
-				
-		if (!is_null($patch) && $patch < $version['patch'])
-			return false;
-				
-		return true;
-	}
-	
-	
 }
 
 ?>

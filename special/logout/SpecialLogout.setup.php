@@ -60,18 +60,10 @@ $wgMessagesDirs['MultiAuthSpecialLogout'] = __DIR__ . '/i18n';
 function multiAuthLogoutSetup() {
 	global $wgExtensionMessagesFiles;
 	global $wgExtensionCredits;
-	global $wgExtensionAliasesFiles;
 	global $wgMultiAuthPlugin;
 
-
-// 	if (MwFunctions::testVersionGEq(1,18))
-// 		MwFunctions::updateMessageCache(); // Hack for post 1.18.0
-	
-	
 	// aliases
-	if (!MwFunctions::testVersionGEq(1,18))
-		$wgExtensionAliasesFiles['MultiAuthSpecialLogout'] = dirname(__FILE__) . '/SpecialLogout.alias.php'; // pre 1.18.0
-
+	$wgExtensionMessagesFiles['MultiAuthSpecialLogoutAlias'] = __DIR__ . '/SpecialLogout.alias.php';
 	
 	// credits
 	$wgExtensionCredits['specialpage']['MultiAuthSpecialLogout'] = array(
