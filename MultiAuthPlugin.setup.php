@@ -52,7 +52,7 @@ function multiAuthSetup() {
 	 * > chown apache:apache logs
 	 */
 	global $wgDebugLogGroups;
-	$wgDebugLogGroups['MultiAuthPlugin'] = dirname(__FILE__) . '/log/debug.log';
+	$wgDebugLogGroups['MultiAuthPlugin'] = __DIR__ . '/log/debug.log';
 
 
 	/********************************************
@@ -61,7 +61,7 @@ function multiAuthSetup() {
 
 	// create a (global) plugin instance
 	global $wgMultiAuthPlugin;
-	$wgMultiAuthPlugin = new MultiAuthPlugin(dirname(__FILE__) . '/MultiAuthPlugin.config.php');
+	$wgMultiAuthPlugin = new MultiAuthPlugin(__DIR__ . '/MultiAuthPlugin.config.php');
 
 	// setup special pages
 	require_once("special/login/SpecialLogin.setup.php");
@@ -152,7 +152,7 @@ function deferredMultiAuthSetup() {
 	 ********************************************/
 
 	global $wgMessagesDirs;
-	$wgMessagesDirs['MultiAuthPlugin'] =  dirname(__FILE__) . '/i18n';
+	$wgMessagesDirs['MultiAuthPlugin'] = __DIR__ . '/i18n';
 	
 	if ( function_exists( 'wfLoadExtensionMessages' ) ) 
 		wfLoadExtensionMessages('MultiAuthPlugin'); // pre 1.18.0
@@ -169,11 +169,11 @@ function deferredMultiAuthSetup() {
 	global $wgExtensionCredits;
 	$wgExtensionCredits['other'][] = array(
 		'path' 			=> __FILE__,
-		'name' 			=> wfMsg('multiauth-credits_name'),
+		'name' 			=> wfMessage('multiauth-credits_name')->text(),
 		'version'		=> $wgMultiAuthPlugin->getVersion(),  // see MultiAuthPlugin.config.php to modify version number
-		'author' 		=> wfMsg('multiauth-credits_author'), 
+		'author' 		=> wfMessage('multiauth-credits_author')->text(), 
 		'url' 			=> $wgMultiAuthPlugin->getURL(), 
-		'description' 	=> wfMsg('multiauth-credits_description')
+		'description' 	=> wfMessage('multiauth-credits_description')->text()
 	);
 
 	
@@ -181,15 +181,15 @@ function deferredMultiAuthSetup() {
 	// TODO cleanly implement localisation!
 	
 	$wgExtensionCredits['specialpage']['MultiAuthSpecialLogin'] = array_merge($wgExtensionCredits['specialpage']['MultiAuthSpecialLogin'], array(
-			'name' 			=> wfMsg('multiauthspeciallogin-credits_name'),
-			'author' 		=> wfMsg('multiauthspeciallogin-credits_author'),
-			'description' 	=> wfMsg('multiauthspeciallogin-credits_description'),
+			'name' 			=> wfMessage('multiauthspeciallogin-credits_name')->text(),
+			'author' 		=> wfMessage('multiauthspeciallogin-credits_author')->text(),
+			'description' 	=> wfMessage('multiauthspeciallogin-credits_description')->text(),
 	));
 	
 	$wgExtensionCredits['specialpage']['MultiAuthSpecialLogout'] = array_merge($wgExtensionCredits['specialpage']['MultiAuthSpecialLogout'], array(
-			'name' 			=> wfMsg('multiauthspeciallogout-credits_name'),
-			'author' 		=> wfMsg('multiauthspeciallogout-credits_author'),
-			'description' 	=> wfMsg('multiauthspeciallogout-credits_description'),
+			'name' 			=> wfMessage('multiauthspeciallogout-credits_name')->text(),
+			'author' 		=> wfMessage('multiauthspeciallogout-credits_author')->text(),
+			'description' 	=> wfMessage('multiauthspeciallogout-credits_description')->text(),
 	));
 
 	return true;

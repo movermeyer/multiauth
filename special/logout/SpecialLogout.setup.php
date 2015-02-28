@@ -75,9 +75,9 @@ function multiAuthLogoutSetup() {
 	
 	// credits
 	$wgExtensionCredits['specialpage']['MultiAuthSpecialLogout'] = array(
-// 		'name' 			=> wfMsg('multiauthspeciallogout-credits_name'),
-// 		'author' 		=> wfMsg('multiauthspeciallogout-credits_author'), 
-// 		'description' 	=> wfMsg('multiauthspeciallogout-credits_description'),
+// 		'name' 			=> wfMessage('multiauthspeciallogout-credits_name')->text(),
+// 		'author' 		=> wfMessage('multiauthspeciallogout-credits_author')->text(), 
+// 		'description' 	=> wfMessage('multiauthspeciallogout-credits_description')->text(),
 		'path' 			=> __FILE__,
 		'version'		=> $wgMultiAuthPlugin->getVersion(),
 		'url' 			=> $wgMultiAuthPlugin->getURL(), 

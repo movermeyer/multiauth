@@ -44,7 +44,7 @@ $wgSpecialPageGroups['MultiAuthSpecialLogin'] = 'login';
 
 // localization
 global $wgMessagesDirs;
-$wgMessagesDirs['MultiAuthSpecialLogin'] = dirname(__FILE__) . '/i18n';
+$wgMessagesDirs['MultiAuthSpecialLogin'] = __DIR__ . '/i18n';
 
 /* ********************************************
  *             DEFERRED SETUP               *
@@ -66,9 +66,9 @@ function multiAuthLoginSetup() {
 		$wgExtensionAliasesFiles['MultiAuthSpecialLogin'] = dirname(__FILE__) . '/SpecialLogin.alias.php';
 
 	$wgExtensionCredits['specialpage']['MultiAuthSpecialLogin'] = array(
-// 			'name' 			=> wfMsg('multiauthspeciallogin-credits_name'),
-// 			'author' 		=> wfMsg('multiauthspeciallogin-credits_author'),
-// 			'description' 	=> wfMsg('multiauthspeciallogin-credits_description'),
+// 			'name' 			=> wfMessage('multiauthspeciallogin-credits_name')->text(),
+// 			'author' 		=> wfMessage('multiauthspeciallogin-credits_author')->text(),
+// 			'description' 	=> wfMessage('multiauthspeciallogin-credits_description')->text(),
 			'path' 			=> __FILE__,
 			'version'		=> $wgMultiAuthPlugin->getVersion(),
 			'url' 			=> $wgMultiAuthPlugin->getURL(),
