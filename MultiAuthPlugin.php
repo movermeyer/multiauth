@@ -56,5 +56,8 @@ if (!MwFunctions::isAsyncLoadRequest()) {
 	
 	
 	// MAKE SURE THIS IS COMMENTED OUT IN PRODUCTION !!!
+	
+	$wgExtensionMessagesFiles['MultiAuthSpecialLoginAlias'] = __DIR__ . '/special/login/SpecialLogin.alias.php';
+	$wgExtensionMessagesFiles['MultiAuthSpecialLogoutAlias'] = __DIR__ . '/special/logout/SpecialLogout.alias.php';
 }
 ?>

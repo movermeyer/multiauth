@@ -28,16 +28,16 @@ if (!defined('MEDIAWIKI')) die('This file is part of MediaWiki. It is not a vali
 /**
  * Aliases file for MultiAuthSpecial
  */
-  
-$aliases = array();
 
+$specialPageAliases = array();
 
-$aliases['de'] = array(
+/** German (Deutsch) */
+$specialPageAliases['de'] = array(
 	'MultiAuthSpecialLogin' => array( 'MultiAuth Anmeldung' ),
 );
 
-
-$aliases['en'] = array(
+/** English (English) */
+$specialPageAliases['en'] = array(
 	'MultiAuthSpecialLogin' => array( 'MultiAuth Login' ),
 );
 
